@@ -8,6 +8,10 @@
         "maxval",
         "minval",
         "ncols",
-        "overbrace"
+        "overbrace",
+        "proba",
+        "pylab",
+        "viridis",
+        "xytext"
     ]
 }
