@@ -15,6 +15,7 @@
         "proba",
         "pylab",
         "singleprint",
+        "stddev",
         "tfhub",
         "varl",
         "viridis",
