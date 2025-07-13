@@ -63,7 +63,7 @@ warnings.filterwarnings('ignore')
 plt.switch_backend('agg')
 
 logger         = logging.getLogger()
-formatter      = logging.Formatter('%(asctime)s - %(module)-25s - %(funcName)-20s - %(lineno)5d - %(levelname)-10s - %(message)s')
+formatter      = logging.Formatter('%(asctime)s | %(module)-10s | %(funcName)-15s | %(lineno)5d | %(levelname)-10s | %(message)s')
 logger.        setLevel(logging.INFO)
 fhandler       = logging.FileHandler(filename='ig-Info.log', mode='a')
 consoleHandler = logging.StreamHandler(sys.stdout)
@@ -81,9 +81,9 @@ logger.        addHandler(fhandler)
 logger.        addHandler(consoleHandler)
 logger.        addHandler(consoleError)
 logger.        addHandler(FutureWarning)
-logger.        info('Step  1: Importing libraries and setting up the environment')
-logger.        warning('This code is designed to run in a Jupyter notebook or similar environment.')
-logger.        error('If you encounter any issues, please check the environment setup.')
+logger.           info('Step  1: Importing libraries and setting up the environment')
+logger.        warning('Step  1: This code is designed to run in a Jupyter notebook or similar environment.')
+logger.          error('Step  1: If you encounter any issues, please check the environment setup.')
 #------------------------------------------------------------------------------------------------------------------------------------------
 # This line of code loads a pre-trained Inception V1 neural network model from TensorFlow Hub, which serves as the foundation for demonstrating
 # Integrated Gradients explainability techniques. TensorFlow Hub is Google's repository of pre-trained machine learning models that can be easily 
@@ -104,8 +104,8 @@ logger.        error('If you encounter any issues, please check the environment 
 # research paper. Using the same architecture helps validate the explainability technique against established benchmarks while providing users with 
 # a well-understood baseline for interpreting the attribution results.
 #-------------------------------------------------------------------------------------------------------------------------------------------
-model = hub.KerasLayer("https://tfhub.dev/google/imagenet/inception_v1/classification/4", input_shape=(224, 224, 3), trainable=False)
 logger.info('Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub')
+model = hub.KerasLayer("https://tfhub.dev/google/imagenet/inception_v1/classification/4", input_shape=(224, 224, 3), trainable=False)
 #------------------------------------------------------------------------------------------------------------------------------------------
 # The `load_imagenet_labels` function is a utility that downloads and loads the ImageNet class labels, which are essential for interpreting the 
 # model's predictions in human-readable format. This function bridges the gap between the model's numerical output (class indices) and meaningful 
@@ -135,6 +135,7 @@ logger.info('Step  2: Loading the pre-trained Inception V1 model from TensorFlow
 # This approach is particularly useful in machine learning applications where models are trained on standard datasets like ImageNet, 
 # as it provides a consistent way to map model predictions to human-readable labels.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step  3: Loading ImageNet labels for model predictions')
 def load_imagenet_labels(file_path):
   labels_file = tf.keras.utils.get_file('ImageNetLabels.txt', file_path)
   with open(labels_file) as reader:
@@ -142,7 +143,6 @@ def load_imagenet_labels(file_path):
     labels = f.splitlines()
   return np.array(labels)
 imagenet_labels = load_imagenet_labels('https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt')
-logger.info('Step  3: Loading ImageNet labels for model predictions')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The `read_image` function is designed to read an image file, decode it, and preprocess it for input into a neural network model.
 # This function is essential for preparing images in a format that the model can understand, particularly for models like Inception V1, 
@@ -170,13 +170,13 @@ logger.info('Step  3: Loading ImageNet labels for model predictions')
 # 3. Converts the image tensor to a floating-point representation in the range [0, 1].
 # 4. Resizes the image to 224x224 pixels with padding to maintain the aspect ratio.
 #-------------------------------------------------------------------------------------------------------------------------------------------  
+logger.info('Step  4: Defining the function to read and preprocess images') 
 def read_image(file_name):
   image = tf.io.read_file(file_name)
   image = tf.io.decode_jpeg(image, channels=3)
   image = tf.image.convert_image_dtype(image, tf.float32)
   image = tf.image.resize_with_pad(image, target_height=224, target_width=224)
   return image
-logger.info('Step  4: Defining the function to read and preprocess images') 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The `img_url` dictionary contains URLs for three different images, each associated with a specific name.
 # These images are used to demonstrate the Integrated Gradients technique on various objects, such as a fireboat, a giant panda, and a coyote.
@@ -198,6 +198,7 @@ logger.info('Step  4: Defining the function to read and preprocess images')
 # This code snippet effectively demonstrates how to load, preprocess, and visualize images for use in the Integrated Gradients technique
 # and provides a clear visual representation of the images being analyzed.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step  5: Downloading and preprocessing images for Integrated Gradients demonstration')
 img_url = {
     'Fireboat'   : 'http://storage.googleapis.com/download.tensorflow.org/example_images/San_Francisco_fireboat_showing_off.jpg',
     'Giant Panda': 'http://storage.googleapis.com/download.tensorflow.org/example_images/Giant_Panda_2.jpeg',
@@ -205,7 +206,6 @@ img_url = {
 }
 img_paths        = {name: tf.keras.utils.get_file(f"{name}.jpg", url) for (name, url) in img_url.items()}
 img_name_tensors = {name: read_image(img_path) for (name, img_path) in img_paths.items()}
-logger.info('Step  5: Downloading and preprocessing images for Integrated Gradients demonstration')
 #--------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet uses Matplotlib to visualize the preprocessed images stored in the `img_name_tensors` dictionary.
 # It creates a figure with a size of 8x8 inches and iterates over the items in `img_name_tensors`.
@@ -218,6 +218,7 @@ logger.info('Step  5: Downloading and preprocessing images for Integrated Gradie
 # This code effectively visualizes the images in a grid layout, allowing for easy comparison and analysis of the different images used 
 # in the Integrated Gradients technique. The saved image can be used for documentation or presentation purposes.
 #--------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step  6: Visualizing preprocessed images')
 plt.figure(figsize=(8, 8))
 for n, (name, img_tensors) in enumerate(img_name_tensors.items()):
   ax = plt.subplot(1, 3, n+1)
@@ -226,7 +227,6 @@ for n, (name, img_tensors) in enumerate(img_name_tensors.items()):
   ax.axis('off')
 plt.tight_layout()
 plt.savefig('images/IG-01.jpg', dpi=300)
-logger.info('Step  6: Visualizing preprocessed images')
 #--------------------------------------------------------------------------------------------------------------------------------------------
 # The `top_k_predictions` function is designed to make predictions using a pre-trained model and return the top-k predicted class labels 
 # along with their probabilities.
@@ -253,6 +253,7 @@ logger.info('Step  6: Visualizing preprocessed images')
 # It can be used in various applications, such as image classification, object detection, and other computer vision tasks 
 # where model interpretability is important.
 #--------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step  7: Defining the function to get top-k predictions') 
 def top_k_predictions(img, k=3):
   image_batch         = tf.expand_dims(img, 0)
   predictions         = model(image_batch)
@@ -260,7 +261,6 @@ def top_k_predictions(img, k=3):
   top_probs, top_idxs = tf.math.top_k(input=probs, k=k)
   top_labels          = imagenet_labels[tuple(top_idxs)]
   return top_labels, top_probs[0]
-logger.info('Step  7: Defining the function to get top-k predictions') 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet iterates over the `img_name_tensors` dictionary, which contains preprocessed image tensors.
 # For each image tensor, it displays the image using Matplotlib, sets the title to the image name in bold font, and turns off the axis 
@@ -315,6 +315,7 @@ for (name, img_tensor) in img_name_tensors.items():
 # The use of a simplified model function and a straight line path makes it easier to grasp the core concepts of IG
 # without the complexity of a full neural network.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step  9: Visualizing the intuition behind Integrated Gradients')
 def f(x):
   return tf.where(x < 0.8, x, 0.8)
 def interpolated_path(x):
@@ -343,7 +344,6 @@ ax1.set_xticks(tf.range(0, 1.5, 0.5))
 ax1.annotate('Baseline', xy=(0.0, 0.0), xytext=(0.0, 0.2),  arrowprops=dict(facecolor='black', shrink=0.1))
 ax1.annotate('Input'   , xy=(1.0, 0.0), xytext=(0.95, 0.2), arrowprops=dict(facecolor='black', shrink=0.1))
 plt.savefig('images/IG-03.jpg', dpi=300)
-logger.info('Step  9: Visualizing the intuition behind Integrated Gradients')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet demonstrates the concept of a baseline image in the context of Integrated Gradients (IG).
 # A baseline image serves as a reference point for calculating the contributions of different pixels in an input image to the model's predictions.
@@ -358,13 +358,13 @@ logger.info('Step  9: Visualizing the intuition behind Integrated Gradients')
 # The choice of a black baseline image is a common practice in explainability techniques, as it allows for a clear comparison between the
 # baseline and the input image, highlighting the contributions of different pixels to the model's predictions.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 10: Defining the baseline image for Integrated Gradients')
 baseline = tf.zeros(shape=(224,224,3))
 plt.figure(figsize=(5, 5))
 plt.imshow(baseline)
 plt.title("Baseline")
 plt.axis('off')
 plt.savefig('images/IG-04.jpg', dpi=300)
-logger.info('Step 10: Defining the baseline image for Integrated Gradients')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet demonstrates the process of interpolating images between a baseline image and a target image using TensorFlow.
 # This is a crucial step in the Integrated Gradients technique, where we create a series of images that gradually transition from the baseline 
@@ -391,6 +391,7 @@ logger.info('Step 10: Defining the baseline image for Integrated Gradients')
 # to the target image, highlighting the contributions of different pixels along the way. 
 # The use of interpolation allows for a smooth representation of the pixel contributions, making it easier to analyze the model's behavior.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 11: Interpolating images between baseline and target image')
 m_steps = 50
 alphas  = tf.linspace(start=0.0, stop=1.0, num=m_steps+1)
 def interpolate_images(baseline, image, alphas):
@@ -433,7 +434,6 @@ for alpha, image in zip(alphas[0::10], interpolated_images[0::10]):
   plt.axis('off')
 plt.tight_layout()
 plt.savefig('images/IG-05-3.jpg', dpi=300)
-logger.info('Step 11: Interpolating images between baseline and target image')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet demonstrates how to compute the gradients of the model's output with respect to
 # the interpolated images using TensorFlow's GradientTape.
@@ -468,6 +468,7 @@ logger.info('Step 11: Interpolating images between baseline and target image')
 # The resulting plots help to understand the contributions of different pixels to the model's predictions,
 # allowing for a better understanding of the model's behavior and the importance of each pixel in the context of Integrated Gradients.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 12: Computing gradients along the interpolated path')
 def compute_gradients(images, target_class_idx):
   with tf.GradientTape() as tape:
     tape.watch(images)
@@ -485,7 +486,6 @@ ax1.set_ylabel('model p(target class)')
 ax1.set_xlabel('alpha')
 ax1.set_ylim([0, 1])
 ax2 = plt.subplot(1, 2, 2)
-logger.info('Step 12: Computing gradients along the interpolated path')
 #------------------------------------------------------------------------------------------------------------------------------------------
 # The following code calculates the average pixel gradients over the interpolated path and normalizes them.
 # This is an important step in the Integrated Gradients technique, as it helps to understand how
@@ -511,6 +511,7 @@ logger.info('Step 12: Computing gradients along the interpolated path')
 # The resulting plot provides insights into how the model's predictions change with respect to the input image pixels,
 # allowing for a better understanding of the model's behavior and the contributions of different pixels to the final prediction.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 13: Calculating average pixel gradients over the interpolated path')
 average_grads      = tf.reduce_mean(path_gradients, axis=[1, 2, 3])
 average_grads_norm = (average_grads-tf.math.reduce_min(average_grads))/(tf.math.reduce_max(average_grads)-tf.reduce_min(average_grads))
 ax2.plot(alphas, average_grads_norm)
@@ -520,7 +521,6 @@ ax2.set_xlabel('alpha')
 ax2.set_ylim([0, 1])
 plt.tight_layout()
 plt.savefig('images/IG-06.jpg', dpi=300)
-logger.info('Step 13: Calculating average pixel gradients over the interpolated path')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet defines a function `integral_approximation` that computes the average
 # of the gradients along the interpolated path in the context of Integrated Gradients.
@@ -543,11 +543,11 @@ logger.info('Step 13: Calculating average pixel gradients over the interpolated 
 # The computed integrated gradients can be used for visualization and interpretation of the model's predictions,
 # helping to identify which pixels are most influential in the model's decision-making process.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 14: Defining the function to compute integrated gradients')
 def integral_approximation(gradients):
   grads = (gradients[:-1] + gradients[1:]) / tf.constant(2.0)
   integrated_gradients = tf.math.reduce_mean(grads, axis=0)
   return integrated_gradients
-logger.info('Step 14: Defining the function to compute integrated gradients')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet demonstrates the use of the `integral_approximation` function to
 # compute the integrated gradients for a given set of path gradients.
@@ -568,8 +568,8 @@ logger.info('Step 14: Defining the function to compute integrated gradients')
 # The integrated gradients can be visualized and analyzed to understand the model's decision-making process
 # and the contributions of different pixels to the final prediction.
 #-------------------------------------------------------------------------------------------------------------------------------------------
-ig = integral_approximation(gradients=path_gradients)
 logger.info('Step 15: Computing integrated gradients from path gradients')
+ig = integral_approximation(gradients=path_gradients)
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet defines a function `integrated_gradients` that computes the Integrated Gradients (IG) for a given image.
 # This function is a key part of the Integrated Gradients technique, which is used to interpret
@@ -601,6 +601,7 @@ logger.info('Step 15: Computing integrated gradients from path gradients')
 # This tensor can be used for visualization and interpretation of the model's behavior, helping to identify
 # which pixels are most influential in the model's decision-making process.
 #-------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 16: Defining the function to compute integrated gradients') 
 def integrated_gradients(baseline,image,target_class_idx,m_steps=50, batch_size=32):
   alphas = tf.linspace(start=0.0, stop=1.0, num=m_steps+1) 
   gradient_batches = []
@@ -614,7 +615,6 @@ def integrated_gradients(baseline,image,target_class_idx,m_steps=50, batch_size=
   avg_gradients        = integral_approximation(gradients=total_gradients)
   integrated_gradients = (image - baseline) * avg_gradients
   return integrated_gradients
-logger.info('Step 16: Defining the function to compute integrated gradients') 
 #--------------------------------------------------------------------------------------------------------------------------------------------
 # The `one_batch` function is defined to compute the gradients for a batch of interpolated images.
 # This function is called within the `integrated_gradients` function to process the images in smaller batches,
@@ -639,11 +639,11 @@ logger.info('Step 16: Defining the function to compute integrated gradients')
 # By breaking down the computation into manageable chunks, it helps to reduce memory usage
 # and improve the overall performance of the Integrated Gradients algorithm.
 #--------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 17: Defining the function to compute gradients for one batch of interpolated images')
 def one_batch(baseline, image, alpha_batch, target_class_idx):
     interpolated_path_input_batch = interpolate_images(baseline=baseline, image=image, alphas=alpha_batch)
     gradient_batch                = compute_gradients(images = interpolated_path_input_batch,target_class_idx=target_class_idx)
     return gradient_batch
-logger.info('Step 17: Defining the function to compute gradients for one batch of interpolated images')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet demonstrates the use of the `integrated_gradients` function to compute the Integrated Gradients for a specific image.
 # The `integrated_gradients` function is called with the following parameters:
@@ -665,13 +665,13 @@ logger.info('Step 17: Defining the function to compute gradients for one batch o
 # The computed Integrated Gradients can be visualized and analyzed to understand the model's decision-making process
 # and the contributions of different pixels to the final prediction.
 #-------------------------------------------------------------------------------------------------------------------------------------------- 
-ig_attributions = integrated_gradients(baseline=baseline, image=img_name_tensors['Fireboat'], target_class_idx=555, m_steps=240)
-logger.info('Attributions shape Fireboat   : %s', ig_attributions.shape)
-ig_attributions = integrated_gradients(baseline=baseline, image=img_name_tensors['Giant Panda'], target_class_idx=555, m_steps=240)
-logger.info('Attributions shape Giant Panda: %s', ig_attributions.shape)
-ig_attributions = integrated_gradients(baseline=baseline, image=img_name_tensors['coyote'], target_class_idx=555, m_steps=240)
-logger.info('Attributions shape Coyote     : %s', ig_attributions.shape)
 logger.info('Step 18: Computing Integrated Gradients for specific images')
+ig_attributions = integrated_gradients(baseline=baseline, image=img_name_tensors['Fireboat'], target_class_idx=555, m_steps=240)
+logger.info('Step 18: Attributions shape Fireboat   : %s', ig_attributions.shape)
+ig_attributions = integrated_gradients(baseline=baseline, image=img_name_tensors['Giant Panda'], target_class_idx=555, m_steps=240)
+logger.info('Step 18: Attributions shape Giant Panda: %s', ig_attributions.shape)
+ig_attributions = integrated_gradients(baseline=baseline, image=img_name_tensors['coyote'], target_class_idx=555, m_steps=240)
+logger.info('Step 18: Attributions shape Coyote     : %s', ig_attributions.shape)
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet defines a function `plot_img_attributions` that visualizes the Integrated Gradients (IG) attributions for a given image.
 # This function is useful for interpreting the contributions of different pixels in the image to the model's predictions.
@@ -705,6 +705,7 @@ logger.info('Step 18: Computing Integrated Gradients for specific images')
 # The use of color maps and overlays enhances the visualization, making it easier to identify the regions of the image that have the most 
 # significant impact on the model's predictions.
 #--------------------------------------------------------------------------------------------------------------------------------------------
+logger.info('Step 19: Defining the function to visualize Integrated Gradients attributions')
 def plot_img_attributions(name, baseline, image, target_class_idx, m_steps=50, cmap=None, overlay_alpha=0.4):
   attributions     = integrated_gradients(baseline=baseline, image=image, target_class_idx=target_class_idx, m_steps=m_steps)
   attribution_mask = tf.reduce_sum(tf.math.abs(attributions), axis=-1)
@@ -725,7 +726,6 @@ def plot_img_attributions(name, baseline, image, target_class_idx, m_steps=50, c
   plt.tight_layout()
   plt.savefig('images/IG-07-'+name+'.jpg', dpi=300)
   return fig
-logger.info('Step 19: Defining the function to visualize Integrated Gradients attributions')
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # The following code snippet demonstrates how to use the `plot_img_attributions` function to visualize
 # the Integrated Gradients (IG) attributions for specific images.

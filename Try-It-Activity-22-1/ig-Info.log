@@ -61,3 +61,381 @@
 2025-07-13 17:55:35,424 - ig-04                     - <module>             -   728 - INFO       - Step 19: Defining the function to visualize Integrated Gradients attributions
 2025-07-13 17:55:42,897 - ig-04                     - <module>             -   756 - INFO       - Step 20: Visualizing Integrated Gradients attributions for specific images
 2025-07-13 17:55:42,897 - ig-04                     - <module>             -   757 - INFO       - Step 99: End of Script
+2025-07-13 17:59:56,099 - ig-04                     - <module>             -    84 - INFO       - Step  1: Importing libraries and setting up the environment
+2025-07-13 17:59:56,099 - ig-04                     - <module>             -    85 - WARNING    - Step  1: This code is designed to run in a Jupyter notebook or similar environment.
+2025-07-13 17:59:56,099 - ig-04                     - <module>             -    86 - ERROR      - Step  1: If you encounter any issues, please check the environment setup.
+2025-07-13 17:59:56,101 - resolver                  - tfhub_cache_dir      -   108 - INFO       - Using /var/folders/v9/gfb6h1mj0jzckj04d4xhj7dh0000gn/T/tfhub_modules to cache modules.
+2025-07-13 17:59:56,452 - load                      - load_partial         -  1083 - INFO       - Fingerprint not found. Saved model loading will continue.
+2025-07-13 17:59:56,453 - load                      - load_partial         -  1102 - INFO       - path_and_singleprint metric could not be logged. Saved model loading will continue.
+2025-07-13 17:59:56,458 - ig-04                     - <module>             -   108 - INFO       - Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub
+2025-07-13 17:59:56,459 - ig-04                     - <module>             -   145 - INFO       - Step  3: Loading ImageNet labels for model predictions
+2025-07-13 17:59:56,459 - ig-04                     - <module>             -   179 - INFO       - Step  4: Defining the function to read and preprocess images
+2025-07-13 17:59:56,667 - ig-04                     - <module>             -   208 - INFO       - Step  5: Downloading and preprocessing images for Integrated Gradients demonstration
+2025-07-13 17:59:56,749 - ig-04                     - <module>             -   229 - INFO       - Step  6: Visualizing preprocessed images
+2025-07-13 17:59:56,749 - ig-04                     - <module>             -   263 - INFO       - Step  7: Defining the function to get top-k predictions
+2025-07-13 17:59:56,749 - ig-04                     - <module>             -   278 - INFO       - Step  8: Displaying images and printing top-k predictions
+2025-07-13 17:59:56,749 - ig-04                     - <module>             -   279 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:56,984 - ig-04                     - <module>             -   287 - INFO       - Step  8: Top 1001 predictions for Fireboat:
+2025-07-13 17:59:56,985 - ig-04                     - <module>             -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:56,985 - ig-04                     - <module>             -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 17:59:56,985 - ig-04                     - <module>             -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 17:59:56,986 - ig-04                     - <module>             -   291 - INFO       - Step  8: Image pixel mean  : 0.37
+2025-07-13 17:59:56,987 - ig-04                     - <module>             -   292 - INFO       - Step  8: Image pixel stddev: 0.32
+2025-07-13 17:59:56,987 - ig-04                     - <module>             -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 17:59:56,987 - ig-04                     - <module>             -   295 - INFO       - Step  8: fireboat          : 32.6%
+2025-07-13 17:59:56,987 - ig-04                     - <module>             -   295 - INFO       - Step  8: pier              : 12.7%
+2025-07-13 17:59:56,987 - ig-04                     - <module>             -   295 - INFO       - Step  8: suspension bridge : 5.7%
+2025-07-13 17:59:56,987 - ig-04                     - <module>             -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:57,027 - ig-04                     - <module>             -   287 - INFO       - Step  8: Top 1001 predictions for Giant Panda:
+2025-07-13 17:59:57,027 - ig-04                     - <module>             -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:57,027 - ig-04                     - <module>             -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 17:59:57,027 - ig-04                     - <module>             -   290 - INFO       - Step  8: Image pixel range : 0.00 to 0.96
+2025-07-13 17:59:57,027 - ig-04                     - <module>             -   291 - INFO       - Step  8: Image pixel mean  : 0.15
+2025-07-13 17:59:57,027 - ig-04                     - <module>             -   292 - INFO       - Step  8: Image pixel stddev: 0.25
+2025-07-13 17:59:57,028 - ig-04                     - <module>             -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 17:59:57,028 - ig-04                     - <module>             -   295 - INFO       - Step  8: giant panda       : 89.4%
+2025-07-13 17:59:57,028 - ig-04                     - <module>             -   295 - INFO       - Step  8: teddy             : 0.3%
+2025-07-13 17:59:57,028 - ig-04                     - <module>             -   295 - INFO       - Step  8: gibbon            : 0.3%
+2025-07-13 17:59:57,028 - ig-04                     - <module>             -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:57,068 - ig-04                     - <module>             -   287 - INFO       - Step  8: Top 1001 predictions for coyote:
+2025-07-13 17:59:57,068 - ig-04                     - <module>             -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:57,068 - ig-04                     - <module>             -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 17:59:57,068 - ig-04                     - <module>             -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 17:59:57,068 - ig-04                     - <module>             -   291 - INFO       - Step  8: Image pixel mean  : 0.57
+2025-07-13 17:59:57,069 - ig-04                     - <module>             -   292 - INFO       - Step  8: Image pixel stddev: 0.45
+2025-07-13 17:59:57,069 - ig-04                     - <module>             -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 17:59:57,069 - ig-04                     - <module>             -   295 - INFO       - Step  8: coyote            : 90.1%
+2025-07-13 17:59:57,069 - ig-04                     - <module>             -   295 - INFO       - Step  8: timber wolf       : 5.4%
+2025-07-13 17:59:57,069 - ig-04                     - <module>             -   295 - INFO       - Step  8: grey fox          : 1.7%
+2025-07-13 17:59:57,069 - ig-04                     - <module>             -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 17:59:57,135 - ig-04                     - <module>             -   346 - INFO       - Step  9: Visualizing the intuition behind Integrated Gradients
+2025-07-13 17:59:57,164 - ig-04                     - <module>             -   367 - INFO       - Step 10: Defining the baseline image for Integrated Gradients
+2025-07-13 17:59:57,984 - ig-04                     - <module>             -   436 - INFO       - Step 11: Interpolating images between baseline and target image
+2025-07-13 18:00:00,026 - ig-04                     - <module>             -   488 - INFO       - Step 12: Computing gradients along the interpolated path
+2025-07-13 18:00:00,091 - ig-04                     - <module>             -   523 - INFO       - Step 13: Calculating average pixel gradients over the interpolated path
+2025-07-13 18:00:00,091 - ig-04                     - <module>             -   550 - INFO       - Step 14: Defining the function to compute integrated gradients
+2025-07-13 18:00:00,094 - ig-04                     - <module>             -   572 - INFO       - Step 15: Computing integrated gradients from path gradients
+2025-07-13 18:00:00,094 - ig-04                     - <module>             -   617 - INFO       - Step 16: Defining the function to compute integrated gradients
+2025-07-13 18:00:00,094 - ig-04                     - <module>             -   646 - INFO       - Step 17: Defining the function to compute gradients for one batch of interpolated images
+2025-07-13 18:00:05,171 - ig-04                     - <module>             -   669 - INFO       - Attributions shape Fireboat   : (224, 224, 3)
+2025-07-13 18:00:09,188 - ig-04                     - <module>             -   671 - INFO       - Attributions shape Giant Panda: (224, 224, 3)
+2025-07-13 18:00:13,298 - ig-04                     - <module>             -   673 - INFO       - Attributions shape Coyote     : (224, 224, 3)
+2025-07-13 18:00:13,298 - ig-04                     - <module>             -   674 - INFO       - Step 18: Computing Integrated Gradients for specific images
+2025-07-13 18:00:13,298 - ig-04                     - <module>             -   728 - INFO       - Step 19: Defining the function to visualize Integrated Gradients attributions
+2025-07-13 18:00:20,564 - ig-04                     - <module>             -   756 - INFO       - Step 20: Visualizing Integrated Gradients attributions for specific images
+2025-07-13 18:00:20,564 - ig-04                     - <module>             -   757 - INFO       - Step 99: End of Script
+2025-07-13 18:03:35,467 - ig-04      - <module>   -    84 - INFO       - Step  1: Importing libraries and setting up the environment
+2025-07-13 18:03:35,468 - ig-04      - <module>   -    85 - WARNING    - Step  1: This code is designed to run in a Jupyter notebook or similar environment.
+2025-07-13 18:03:35,468 - ig-04      - <module>   -    86 - ERROR      - Step  1: If you encounter any issues, please check the environment setup.
+2025-07-13 18:03:35,469 - resolver   - tfhub_cache_dir -   108 - INFO       - Using /var/folders/v9/gfb6h1mj0jzckj04d4xhj7dh0000gn/T/tfhub_modules to cache modules.
+2025-07-13 18:03:35,815 - load       - load_partial -  1083 - INFO       - Fingerprint not found. Saved model loading will continue.
+2025-07-13 18:03:35,815 - load       - load_partial -  1102 - INFO       - path_and_singleprint metric could not be logged. Saved model loading will continue.
+2025-07-13 18:03:35,821 - ig-04      - <module>   -   108 - INFO       - Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub
+2025-07-13 18:03:35,821 - ig-04      - <module>   -   145 - INFO       - Step  3: Loading ImageNet labels for model predictions
+2025-07-13 18:03:35,821 - ig-04      - <module>   -   179 - INFO       - Step  4: Defining the function to read and preprocess images
+2025-07-13 18:03:36,024 - ig-04      - <module>   -   208 - INFO       - Step  5: Downloading and preprocessing images for Integrated Gradients demonstration
+2025-07-13 18:03:36,105 - ig-04      - <module>   -   229 - INFO       - Step  6: Visualizing preprocessed images
+2025-07-13 18:03:36,106 - ig-04      - <module>   -   263 - INFO       - Step  7: Defining the function to get top-k predictions
+2025-07-13 18:03:36,106 - ig-04      - <module>   -   278 - INFO       - Step  8: Displaying images and printing top-k predictions
+2025-07-13 18:03:36,106 - ig-04      - <module>   -   279 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,337 - ig-04      - <module>   -   287 - INFO       - Step  8: Top 1001 predictions for Fireboat:
+2025-07-13 18:03:36,337 - ig-04      - <module>   -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,337 - ig-04      - <module>   -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:03:36,338 - ig-04      - <module>   -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:03:36,339 - ig-04      - <module>   -   291 - INFO       - Step  8: Image pixel mean  : 0.37
+2025-07-13 18:03:36,340 - ig-04      - <module>   -   292 - INFO       - Step  8: Image pixel stddev: 0.32
+2025-07-13 18:03:36,340 - ig-04      - <module>   -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:03:36,340 - ig-04      - <module>   -   295 - INFO       - Step  8: fireboat          : 32.6%
+2025-07-13 18:03:36,340 - ig-04      - <module>   -   295 - INFO       - Step  8: pier              : 12.7%
+2025-07-13 18:03:36,340 - ig-04      - <module>   -   295 - INFO       - Step  8: suspension bridge : 5.7%
+2025-07-13 18:03:36,340 - ig-04      - <module>   -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,380 - ig-04      - <module>   -   287 - INFO       - Step  8: Top 1001 predictions for Giant Panda:
+2025-07-13 18:03:36,380 - ig-04      - <module>   -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,380 - ig-04      - <module>   -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:03:36,380 - ig-04      - <module>   -   290 - INFO       - Step  8: Image pixel range : 0.00 to 0.96
+2025-07-13 18:03:36,380 - ig-04      - <module>   -   291 - INFO       - Step  8: Image pixel mean  : 0.15
+2025-07-13 18:03:36,381 - ig-04      - <module>   -   292 - INFO       - Step  8: Image pixel stddev: 0.25
+2025-07-13 18:03:36,381 - ig-04      - <module>   -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:03:36,381 - ig-04      - <module>   -   295 - INFO       - Step  8: giant panda       : 89.4%
+2025-07-13 18:03:36,381 - ig-04      - <module>   -   295 - INFO       - Step  8: teddy             : 0.3%
+2025-07-13 18:03:36,381 - ig-04      - <module>   -   295 - INFO       - Step  8: gibbon            : 0.3%
+2025-07-13 18:03:36,381 - ig-04      - <module>   -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   287 - INFO       - Step  8: Top 1001 predictions for coyote:
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   291 - INFO       - Step  8: Image pixel mean  : 0.57
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   292 - INFO       - Step  8: Image pixel stddev: 0.45
+2025-07-13 18:03:36,421 - ig-04      - <module>   -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:03:36,422 - ig-04      - <module>   -   295 - INFO       - Step  8: coyote            : 90.1%
+2025-07-13 18:03:36,422 - ig-04      - <module>   -   295 - INFO       - Step  8: timber wolf       : 5.4%
+2025-07-13 18:03:36,422 - ig-04      - <module>   -   295 - INFO       - Step  8: grey fox          : 1.7%
+2025-07-13 18:03:36,422 - ig-04      - <module>   -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:03:36,486 - ig-04      - <module>   -   346 - INFO       - Step  9: Visualizing the intuition behind Integrated Gradients
+2025-07-13 18:03:36,515 - ig-04      - <module>   -   367 - INFO       - Step 10: Defining the baseline image for Integrated Gradients
+2025-07-13 18:03:37,340 - ig-04      - <module>   -   436 - INFO       - Step 11: Interpolating images between baseline and target image
+2025-07-13 18:03:39,408 - ig-04      - <module>   -   488 - INFO       - Step 12: Computing gradients along the interpolated path
+2025-07-13 18:03:39,478 - ig-04      - <module>   -   523 - INFO       - Step 13: Calculating average pixel gradients over the interpolated path
+2025-07-13 18:03:39,478 - ig-04      - <module>   -   550 - INFO       - Step 14: Defining the function to compute integrated gradients
+2025-07-13 18:03:39,481 - ig-04      - <module>   -   572 - INFO       - Step 15: Computing integrated gradients from path gradients
+2025-07-13 18:03:39,481 - ig-04      - <module>   -   617 - INFO       - Step 16: Defining the function to compute integrated gradients
+2025-07-13 18:03:39,481 - ig-04      - <module>   -   646 - INFO       - Step 17: Defining the function to compute gradients for one batch of interpolated images
+2025-07-13 18:03:44,606 - ig-04      - <module>   -   669 - INFO       - Attributions shape Fireboat   : (224, 224, 3)
+2025-07-13 18:03:48,529 - ig-04      - <module>   -   671 - INFO       - Attributions shape Giant Panda: (224, 224, 3)
+2025-07-13 18:03:52,468 - ig-04      - <module>   -   673 - INFO       - Attributions shape Coyote     : (224, 224, 3)
+2025-07-13 18:03:52,468 - ig-04      - <module>   -   674 - INFO       - Step 18: Computing Integrated Gradients for specific images
+2025-07-13 18:03:52,469 - ig-04      - <module>   -   728 - INFO       - Step 19: Defining the function to visualize Integrated Gradients attributions
+2025-07-13 18:03:59,608 - ig-04      - <module>   -   756 - INFO       - Step 20: Visualizing Integrated Gradients attributions for specific images
+2025-07-13 18:03:59,608 - ig-04      - <module>   -   757 - INFO       - Step 99: End of Script
+2025-07-13 18:04:31,879 - ig-04      - <module>        -    84 - INFO       - Step  1: Importing libraries and setting up the environment
+2025-07-13 18:04:31,879 - ig-04      - <module>        -    85 - WARNING    - Step  1: This code is designed to run in a Jupyter notebook or similar environment.
+2025-07-13 18:04:31,879 - ig-04      - <module>        -    86 - ERROR      - Step  1: If you encounter any issues, please check the environment setup.
+2025-07-13 18:04:31,881 - resolver   - tfhub_cache_dir -   108 - INFO       - Using /var/folders/v9/gfb6h1mj0jzckj04d4xhj7dh0000gn/T/tfhub_modules to cache modules.
+2025-07-13 18:04:32,221 - load       - load_partial    -  1083 - INFO       - Fingerprint not found. Saved model loading will continue.
+2025-07-13 18:04:32,222 - load       - load_partial    -  1102 - INFO       - path_and_singleprint metric could not be logged. Saved model loading will continue.
+2025-07-13 18:04:32,227 - ig-04      - <module>        -   108 - INFO       - Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub
+2025-07-13 18:04:32,227 - ig-04      - <module>        -   145 - INFO       - Step  3: Loading ImageNet labels for model predictions
+2025-07-13 18:04:32,227 - ig-04      - <module>        -   179 - INFO       - Step  4: Defining the function to read and preprocess images
+2025-07-13 18:04:32,433 - ig-04      - <module>        -   208 - INFO       - Step  5: Downloading and preprocessing images for Integrated Gradients demonstration
+2025-07-13 18:04:32,515 - ig-04      - <module>        -   229 - INFO       - Step  6: Visualizing preprocessed images
+2025-07-13 18:04:32,515 - ig-04      - <module>        -   263 - INFO       - Step  7: Defining the function to get top-k predictions
+2025-07-13 18:04:32,515 - ig-04      - <module>        -   278 - INFO       - Step  8: Displaying images and printing top-k predictions
+2025-07-13 18:04:32,515 - ig-04      - <module>        -   279 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,746 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for Fireboat:
+2025-07-13 18:04:32,746 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,746 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:04:32,747 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:04:32,748 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.37
+2025-07-13 18:04:32,749 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.32
+2025-07-13 18:04:32,749 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:04:32,749 - ig-04      - <module>        -   295 - INFO       - Step  8: fireboat          : 32.6%
+2025-07-13 18:04:32,749 - ig-04      - <module>        -   295 - INFO       - Step  8: pier              : 12.7%
+2025-07-13 18:04:32,749 - ig-04      - <module>        -   295 - INFO       - Step  8: suspension bridge : 5.7%
+2025-07-13 18:04:32,749 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,789 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for Giant Panda:
+2025-07-13 18:04:32,789 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,789 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:04:32,789 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 0.96
+2025-07-13 18:04:32,789 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.15
+2025-07-13 18:04:32,790 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.25
+2025-07-13 18:04:32,790 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:04:32,790 - ig-04      - <module>        -   295 - INFO       - Step  8: giant panda       : 89.4%
+2025-07-13 18:04:32,790 - ig-04      - <module>        -   295 - INFO       - Step  8: teddy             : 0.3%
+2025-07-13 18:04:32,790 - ig-04      - <module>        -   295 - INFO       - Step  8: gibbon            : 0.3%
+2025-07-13 18:04:32,790 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,830 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for coyote:
+2025-07-13 18:04:32,830 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,830 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:04:32,830 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:04:32,830 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.57
+2025-07-13 18:04:32,831 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.45
+2025-07-13 18:04:32,831 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:04:32,831 - ig-04      - <module>        -   295 - INFO       - Step  8: coyote            : 90.1%
+2025-07-13 18:04:32,831 - ig-04      - <module>        -   295 - INFO       - Step  8: timber wolf       : 5.4%
+2025-07-13 18:04:32,831 - ig-04      - <module>        -   295 - INFO       - Step  8: grey fox          : 1.7%
+2025-07-13 18:04:32,831 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:04:32,895 - ig-04      - <module>        -   346 - INFO       - Step  9: Visualizing the intuition behind Integrated Gradients
+2025-07-13 18:04:32,924 - ig-04      - <module>        -   367 - INFO       - Step 10: Defining the baseline image for Integrated Gradients
+2025-07-13 18:04:33,750 - ig-04      - <module>        -   436 - INFO       - Step 11: Interpolating images between baseline and target image
+2025-07-13 18:04:35,807 - ig-04      - <module>        -   488 - INFO       - Step 12: Computing gradients along the interpolated path
+2025-07-13 18:04:35,876 - ig-04      - <module>        -   523 - INFO       - Step 13: Calculating average pixel gradients over the interpolated path
+2025-07-13 18:04:35,876 - ig-04      - <module>        -   550 - INFO       - Step 14: Defining the function to compute integrated gradients
+2025-07-13 18:04:35,879 - ig-04      - <module>        -   572 - INFO       - Step 15: Computing integrated gradients from path gradients
+2025-07-13 18:04:35,879 - ig-04      - <module>        -   617 - INFO       - Step 16: Defining the function to compute integrated gradients
+2025-07-13 18:04:35,879 - ig-04      - <module>        -   646 - INFO       - Step 17: Defining the function to compute gradients for one batch of interpolated images
+2025-07-13 18:04:40,907 - ig-04      - <module>        -   669 - INFO       - Attributions shape Fireboat   : (224, 224, 3)
+2025-07-13 18:04:44,895 - ig-04      - <module>        -   671 - INFO       - Attributions shape Giant Panda: (224, 224, 3)
+2025-07-13 18:04:48,835 - ig-04      - <module>        -   673 - INFO       - Attributions shape Coyote     : (224, 224, 3)
+2025-07-13 18:04:48,835 - ig-04      - <module>        -   674 - INFO       - Step 18: Computing Integrated Gradients for specific images
+2025-07-13 18:04:48,835 - ig-04      - <module>        -   728 - INFO       - Step 19: Defining the function to visualize Integrated Gradients attributions
+2025-07-13 18:04:55,984 - ig-04      - <module>        -   756 - INFO       - Step 20: Visualizing Integrated Gradients attributions for specific images
+2025-07-13 18:04:55,984 - ig-04      - <module>        -   757 - INFO       - Step 99: End of Script
+2025-07-13 18:21:00,283 - ig-04      - <module>        -    84 - INFO       - Step  1: Importing libraries and setting up the environment
+2025-07-13 18:21:00,283 - ig-04      - <module>        -    85 - WARNING    - Step  1: This code is designed to run in a Jupyter notebook or similar environment.
+2025-07-13 18:21:00,283 - ig-04      - <module>        -    86 - ERROR      - Step  1: If you encounter any issues, please check the environment setup.
+2025-07-13 18:21:00,284 - ig-04      - <module>        -   107 - INFO       - Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub
+2025-07-13 18:21:00,285 - resolver   - tfhub_cache_dir -   108 - INFO       - Using /var/folders/v9/gfb6h1mj0jzckj04d4xhj7dh0000gn/T/tfhub_modules to cache modules.
+2025-07-13 18:21:00,638 - load       - load_partial    -  1083 - INFO       - Fingerprint not found. Saved model loading will continue.
+2025-07-13 18:21:00,638 - load       - load_partial    -  1102 - INFO       - path_and_singleprint metric could not be logged. Saved model loading will continue.
+2025-07-13 18:21:00,643 - ig-04      - <module>        -   138 - INFO       - Step  3: Loading ImageNet labels for model predictions
+2025-07-13 18:21:00,644 - ig-04      - <module>        -   173 - INFO       - Step  4: Defining the function to read and preprocess images
+2025-07-13 18:21:00,644 - ig-04      - <module>        -   201 - INFO       - Step  5: Downloading and preprocessing images for Integrated Gradients demonstration
+2025-07-13 18:21:00,854 - ig-04      - <module>        -   221 - INFO       - Step  6: Visualizing preprocessed images
+2025-07-13 18:21:00,943 - ig-04      - <module>        -   256 - INFO       - Step  7: Defining the function to get top-k predictions
+2025-07-13 18:21:00,943 - ig-04      - <module>        -   278 - INFO       - Step  8: Displaying images and printing top-k predictions
+2025-07-13 18:21:00,943 - ig-04      - <module>        -   279 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,198 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for Fireboat:
+2025-07-13 18:21:01,198 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,198 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:21:01,199 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:21:01,200 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.37
+2025-07-13 18:21:01,201 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.32
+2025-07-13 18:21:01,201 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:21:01,201 - ig-04      - <module>        -   295 - INFO       - Step  8: fireboat          : 32.6%
+2025-07-13 18:21:01,201 - ig-04      - <module>        -   295 - INFO       - Step  8: pier              : 12.7%
+2025-07-13 18:21:01,201 - ig-04      - <module>        -   295 - INFO       - Step  8: suspension bridge : 5.7%
+2025-07-13 18:21:01,201 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for Giant Panda:
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 0.96
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.15
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.25
+2025-07-13 18:21:01,242 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:21:01,243 - ig-04      - <module>        -   295 - INFO       - Step  8: giant panda       : 89.4%
+2025-07-13 18:21:01,243 - ig-04      - <module>        -   295 - INFO       - Step  8: teddy             : 0.3%
+2025-07-13 18:21:01,243 - ig-04      - <module>        -   295 - INFO       - Step  8: gibbon            : 0.3%
+2025-07-13 18:21:01,243 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,280 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for coyote:
+2025-07-13 18:21:01,280 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,280 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.57
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.45
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   295 - INFO       - Step  8: coyote            : 90.1%
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   295 - INFO       - Step  8: timber wolf       : 5.4%
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   295 - INFO       - Step  8: grey fox          : 1.7%
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:21:01,281 - ig-04      - <module>        -   318 - INFO       - Step  9: Visualizing the intuition behind Integrated Gradients
+2025-07-13 18:21:01,348 - ig-04      - <module>        -   361 - INFO       - Step 10: Defining the baseline image for Integrated Gradients
+2025-07-13 18:21:01,378 - ig-04      - <module>        -   394 - INFO       - Step 11: Interpolating images between baseline and target image
+2025-07-13 18:21:02,201 - ig-04      - <module>        -   471 - INFO       - Step 12: Computing gradients along the interpolated path
+2025-07-13 18:21:04,276 - ig-04      - <module>        -   514 - INFO       - Step 13: Calculating average pixel gradients over the interpolated path
+2025-07-13 18:21:04,346 - ig-04      - <module>        -   546 - INFO       - Step 14: Defining the function to compute integrated gradients
+2025-07-13 18:21:04,346 - ig-04      - <module>        -   571 - INFO       - Step 15: Computing integrated gradients from path gradients
+2025-07-13 18:21:04,350 - ig-04      - <module>        -   604 - INFO       - Step 16: Defining the function to compute integrated gradients
+2025-07-13 18:21:04,350 - ig-04      - <module>        -   642 - INFO       - Step 17: Defining the function to compute gradients for one batch of interpolated images
+2025-07-13 18:21:04,350 - ig-04      - <module>        -   668 - INFO       - Step 18: Computing Integrated Gradients for specific images
+2025-07-13 18:21:09,475 - ig-04      - <module>        -   670 - INFO       - Attributions shape Fireboat   : (224, 224, 3)
+2025-07-13 18:21:13,417 - ig-04      - <module>        -   672 - INFO       - Attributions shape Giant Panda: (224, 224, 3)
+2025-07-13 18:21:17,353 - ig-04      - <module>        -   674 - INFO       - Attributions shape Coyote     : (224, 224, 3)
+2025-07-13 18:21:17,353 - ig-04      - <module>        -   708 - INFO       - Step 19: Defining the function to visualize Integrated Gradients attributions
+2025-07-13 18:21:24,393 - ig-04      - <module>        -   756 - INFO       - Step 20: Visualizing Integrated Gradients attributions for specific images
+2025-07-13 18:21:24,393 - ig-04      - <module>        -   757 - INFO       - Step 99: End of Script
+2025-07-13 18:22:05,396 - ig-04      - <module>        -    84 - INFO       - Step  1: Importing libraries and setting up the environment
+2025-07-13 18:22:05,396 - ig-04      - <module>        -    85 - WARNING    - Step  1: This code is designed to run in a Jupyter notebook or similar environment.
+2025-07-13 18:22:05,396 - ig-04      - <module>        -    86 - ERROR      - Step  1: If you encounter any issues, please check the environment setup.
+2025-07-13 18:22:05,396 - ig-04      - <module>        -   107 - INFO       - Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub
+2025-07-13 18:22:05,398 - resolver   - tfhub_cache_dir -   108 - INFO       - Using /var/folders/v9/gfb6h1mj0jzckj04d4xhj7dh0000gn/T/tfhub_modules to cache modules.
+2025-07-13 18:22:05,749 - load       - load_partial    -  1083 - INFO       - Fingerprint not found. Saved model loading will continue.
+2025-07-13 18:22:05,749 - load       - load_partial    -  1102 - INFO       - path_and_singleprint metric could not be logged. Saved model loading will continue.
+2025-07-13 18:22:05,754 - ig-04      - <module>        -   138 - INFO       - Step  3: Loading ImageNet labels for model predictions
+2025-07-13 18:22:05,755 - ig-04      - <module>        -   173 - INFO       - Step  4: Defining the function to read and preprocess images
+2025-07-13 18:22:05,755 - ig-04      - <module>        -   201 - INFO       - Step  5: Downloading and preprocessing images for Integrated Gradients demonstration
+2025-07-13 18:22:05,961 - ig-04      - <module>        -   221 - INFO       - Step  6: Visualizing preprocessed images
+2025-07-13 18:22:06,043 - ig-04      - <module>        -   256 - INFO       - Step  7: Defining the function to get top-k predictions
+2025-07-13 18:22:06,043 - ig-04      - <module>        -   278 - INFO       - Step  8: Displaying images and printing top-k predictions
+2025-07-13 18:22:06,043 - ig-04      - <module>        -   279 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,274 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for Fireboat:
+2025-07-13 18:22:06,274 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,274 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:22:06,275 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:22:06,275 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.37
+2025-07-13 18:22:06,276 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.32
+2025-07-13 18:22:06,276 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:22:06,277 - ig-04      - <module>        -   295 - INFO       - Step  8: fireboat          : 32.6%
+2025-07-13 18:22:06,277 - ig-04      - <module>        -   295 - INFO       - Step  8: pier              : 12.7%
+2025-07-13 18:22:06,277 - ig-04      - <module>        -   295 - INFO       - Step  8: suspension bridge : 5.7%
+2025-07-13 18:22:06,277 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,317 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for Giant Panda:
+2025-07-13 18:22:06,318 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,318 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:22:06,318 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 0.96
+2025-07-13 18:22:06,318 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.15
+2025-07-13 18:22:06,318 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.25
+2025-07-13 18:22:06,319 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:22:06,319 - ig-04      - <module>        -   295 - INFO       - Step  8: giant panda       : 89.4%
+2025-07-13 18:22:06,319 - ig-04      - <module>        -   295 - INFO       - Step  8: teddy             : 0.3%
+2025-07-13 18:22:06,319 - ig-04      - <module>        -   295 - INFO       - Step  8: gibbon            : 0.3%
+2025-07-13 18:22:06,319 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,359 - ig-04      - <module>        -   287 - INFO       - Step  8: Top 1001 predictions for coyote:
+2025-07-13 18:22:06,359 - ig-04      - <module>        -   288 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,359 - ig-04      - <module>        -   289 - INFO       - Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:22:06,359 - ig-04      - <module>        -   290 - INFO       - Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   291 - INFO       - Step  8: Image pixel mean  : 0.57
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   292 - INFO       - Step  8: Image pixel stddev: 0.45
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   293 - INFO       - Step  8: Top predictions:
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   295 - INFO       - Step  8: coyote            : 90.1%
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   295 - INFO       - Step  8: timber wolf       : 5.4%
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   295 - INFO       - Step  8: grey fox          : 1.7%
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   296 - INFO       - Step  8: -------------------------------------
+2025-07-13 18:22:06,360 - ig-04      - <module>        -   318 - INFO       - Step  9: Visualizing the intuition behind Integrated Gradients
+2025-07-13 18:22:06,428 - ig-04      - <module>        -   361 - INFO       - Step 10: Defining the baseline image for Integrated Gradients
+2025-07-13 18:22:06,457 - ig-04      - <module>        -   394 - INFO       - Step 11: Interpolating images between baseline and target image
+2025-07-13 18:22:07,311 - ig-04      - <module>        -   471 - INFO       - Step 12: Computing gradients along the interpolated path
+2025-07-13 18:22:09,387 - ig-04      - <module>        -   514 - INFO       - Step 13: Calculating average pixel gradients over the interpolated path
+2025-07-13 18:22:09,451 - ig-04      - <module>        -   546 - INFO       - Step 14: Defining the function to compute integrated gradients
+2025-07-13 18:22:09,451 - ig-04      - <module>        -   571 - INFO       - Step 15: Computing integrated gradients from path gradients
+2025-07-13 18:22:09,454 - ig-04      - <module>        -   604 - INFO       - Step 16: Defining the function to compute integrated gradients
+2025-07-13 18:22:09,454 - ig-04      - <module>        -   642 - INFO       - Step 17: Defining the function to compute gradients for one batch of interpolated images
+2025-07-13 18:22:09,454 - ig-04      - <module>        -   668 - INFO       - Step 18: Computing Integrated Gradients for specific images
+2025-07-13 18:22:14,546 - ig-04      - <module>        -   670 - INFO       - Step 18: Attributions shape Fireboat   : (224, 224, 3)
+2025-07-13 18:22:18,466 - ig-04      - <module>        -   672 - INFO       - Step 18: Attributions shape Giant Panda: (224, 224, 3)
+2025-07-13 18:22:22,477 - ig-04      - <module>        -   674 - INFO       - Step 18: Attributions shape Coyote     : (224, 224, 3)
+2025-07-13 18:22:22,477 - ig-04      - <module>        -   708 - INFO       - Step 19: Defining the function to visualize Integrated Gradients attributions
+2025-07-13 18:22:29,575 - ig-04      - <module>        -   756 - INFO       - Step 20: Visualizing Integrated Gradients attributions for specific images
+2025-07-13 18:22:29,576 - ig-04      - <module>        -   757 - INFO       - Step 99: End of Script
+2025-07-13 18:23:23,881 | ig-04      | <module>        |    84 | INFO       | Step  1: Importing libraries and setting up the environment
+2025-07-13 18:23:23,881 | ig-04      | <module>        |    85 | WARNING    | Step  1: This code is designed to run in a Jupyter notebook or similar environment.
+2025-07-13 18:23:23,881 | ig-04      | <module>        |    86 | ERROR      | Step  1: If you encounter any issues, please check the environment setup.
+2025-07-13 18:23:23,881 | ig-04      | <module>        |   107 | INFO       | Step  2: Loading the pre-trained Inception V1 model from TensorFlow Hub
+2025-07-13 18:23:23,883 | resolver   | tfhub_cache_dir |   108 | INFO       | Using /var/folders/v9/gfb6h1mj0jzckj04d4xhj7dh0000gn/T/tfhub_modules to cache modules.
+2025-07-13 18:23:24,227 | load       | load_partial    |  1083 | INFO       | Fingerprint not found. Saved model loading will continue.
+2025-07-13 18:23:24,228 | load       | load_partial    |  1102 | INFO       | path_and_singleprint metric could not be logged. Saved model loading will continue.
+2025-07-13 18:23:24,233 | ig-04      | <module>        |   138 | INFO       | Step  3: Loading ImageNet labels for model predictions
+2025-07-13 18:23:24,233 | ig-04      | <module>        |   173 | INFO       | Step  4: Defining the function to read and preprocess images
+2025-07-13 18:23:24,233 | ig-04      | <module>        |   201 | INFO       | Step  5: Downloading and preprocessing images for Integrated Gradients demonstration
+2025-07-13 18:23:24,438 | ig-04      | <module>        |   221 | INFO       | Step  6: Visualizing preprocessed images
+2025-07-13 18:23:24,520 | ig-04      | <module>        |   256 | INFO       | Step  7: Defining the function to get top-k predictions
+2025-07-13 18:23:24,520 | ig-04      | <module>        |   278 | INFO       | Step  8: Displaying images and printing top-k predictions
+2025-07-13 18:23:24,520 | ig-04      | <module>        |   279 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,755 | ig-04      | <module>        |   287 | INFO       | Step  8: Top 1001 predictions for Fireboat:
+2025-07-13 18:23:24,755 | ig-04      | <module>        |   288 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,755 | ig-04      | <module>        |   289 | INFO       | Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:23:24,755 | ig-04      | <module>        |   290 | INFO       | Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:23:24,756 | ig-04      | <module>        |   291 | INFO       | Step  8: Image pixel mean  : 0.37
+2025-07-13 18:23:24,757 | ig-04      | <module>        |   292 | INFO       | Step  8: Image pixel stddev: 0.32
+2025-07-13 18:23:24,757 | ig-04      | <module>        |   293 | INFO       | Step  8: Top predictions:
+2025-07-13 18:23:24,757 | ig-04      | <module>        |   295 | INFO       | Step  8: fireboat          : 32.6%
+2025-07-13 18:23:24,757 | ig-04      | <module>        |   295 | INFO       | Step  8: pier              : 12.7%
+2025-07-13 18:23:24,757 | ig-04      | <module>        |   295 | INFO       | Step  8: suspension bridge : 5.7%
+2025-07-13 18:23:24,757 | ig-04      | <module>        |   296 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,798 | ig-04      | <module>        |   287 | INFO       | Step  8: Top 1001 predictions for Giant Panda:
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   288 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   289 | INFO       | Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   290 | INFO       | Step  8: Image pixel range : 0.00 to 0.96
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   291 | INFO       | Step  8: Image pixel mean  : 0.15
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   292 | INFO       | Step  8: Image pixel stddev: 0.25
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   293 | INFO       | Step  8: Top predictions:
+2025-07-13 18:23:24,799 | ig-04      | <module>        |   295 | INFO       | Step  8: giant panda       : 89.4%
+2025-07-13 18:23:24,800 | ig-04      | <module>        |   295 | INFO       | Step  8: teddy             : 0.3%
+2025-07-13 18:23:24,800 | ig-04      | <module>        |   295 | INFO       | Step  8: gibbon            : 0.3%
+2025-07-13 18:23:24,800 | ig-04      | <module>        |   296 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,841 | ig-04      | <module>        |   287 | INFO       | Step  8: Top 1001 predictions for coyote:
+2025-07-13 18:23:24,841 | ig-04      | <module>        |   288 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,841 | ig-04      | <module>        |   289 | INFO       | Step  8: Image shape       : (224, 224, 3)
+2025-07-13 18:23:24,841 | ig-04      | <module>        |   290 | INFO       | Step  8: Image pixel range : 0.00 to 1.00
+2025-07-13 18:23:24,841 | ig-04      | <module>        |   291 | INFO       | Step  8: Image pixel mean  : 0.57
+2025-07-13 18:23:24,841 | ig-04      | <module>        |   292 | INFO       | Step  8: Image pixel stddev: 0.45
+2025-07-13 18:23:24,842 | ig-04      | <module>        |   293 | INFO       | Step  8: Top predictions:
+2025-07-13 18:23:24,842 | ig-04      | <module>        |   295 | INFO       | Step  8: coyote            : 90.1%
+2025-07-13 18:23:24,842 | ig-04      | <module>        |   295 | INFO       | Step  8: timber wolf       : 5.4%
+2025-07-13 18:23:24,842 | ig-04      | <module>        |   295 | INFO       | Step  8: grey fox          : 1.7%
+2025-07-13 18:23:24,842 | ig-04      | <module>        |   296 | INFO       | Step  8: -------------------------------------
+2025-07-13 18:23:24,842 | ig-04      | <module>        |   318 | INFO       | Step  9: Visualizing the intuition behind Integrated Gradients
+2025-07-13 18:23:24,908 | ig-04      | <module>        |   361 | INFO       | Step 10: Defining the baseline image for Integrated Gradients
+2025-07-13 18:23:24,937 | ig-04      | <module>        |   394 | INFO       | Step 11: Interpolating images between baseline and target image
+2025-07-13 18:23:25,783 | ig-04      | <module>        |   471 | INFO       | Step 12: Computing gradients along the interpolated path
+2025-07-13 18:23:27,867 | ig-04      | <module>        |   514 | INFO       | Step 13: Calculating average pixel gradients over the interpolated path
+2025-07-13 18:23:27,936 | ig-04      | <module>        |   546 | INFO       | Step 14: Defining the function to compute integrated gradients
+2025-07-13 18:23:27,936 | ig-04      | <module>        |   571 | INFO       | Step 15: Computing integrated gradients from path gradients
+2025-07-13 18:23:27,939 | ig-04      | <module>        |   604 | INFO       | Step 16: Defining the function to compute integrated gradients
+2025-07-13 18:23:27,939 | ig-04      | <module>        |   642 | INFO       | Step 17: Defining the function to compute gradients for one batch of interpolated images
+2025-07-13 18:23:27,940 | ig-04      | <module>        |   668 | INFO       | Step 18: Computing Integrated Gradients for specific images
+2025-07-13 18:23:33,088 | ig-04      | <module>        |   670 | INFO       | Step 18: Attributions shape Fireboat   : (224, 224, 3)
+2025-07-13 18:23:37,001 | ig-04      | <module>        |   672 | INFO       | Step 18: Attributions shape Giant Panda: (224, 224, 3)
+2025-07-13 18:23:40,999 | ig-04      | <module>        |   674 | INFO       | Step 18: Attributions shape Coyote     : (224, 224, 3)
+2025-07-13 18:23:40,999 | ig-04      | <module>        |   708 | INFO       | Step 19: Defining the function to visualize Integrated Gradients attributions
+2025-07-13 18:23:48,162 | ig-04      | <module>        |   756 | INFO       | Step 20: Visualizing Integrated Gradients attributions for specific images
+2025-07-13 18:23:48,163 | ig-04      | <module>        |   757 | INFO       | Step 99: End of Script
