@@ -21,7 +21,7 @@ Try-It-Activity-22-1/images/IG-05-3.jpg
 Try-It-Activity-22-1/images/IG-05-2.jpg
 Try-It-Activity-22-1/images/integrated_gradients_intuition.jpg
 Try-It-Activity-22-1/images/integrated_gradients_interpolated.jpg
-images/
+images/*
 error.ipynb
 Assignment-22-1/my Experience.docx
 Try-It-Activity-22-1/ig-Error.log
@@ -29,3 +29,10 @@ Try-It-Activity-22-1/ig-Info.log
 Try-It-Activity-22-1/IG-Warnings.log
 Try-It-Activity-22-1/ig-Error.log
 Try-It-Activity-22-1/ig-Error.log
+Try-It-Activity-22-1/venv/*
+ig-Error.log
+ig-Info.log
+ig-Warnings.log
+Try-It-Activity-22-1/ig-Info.log
+Try-It-Activity-22-1/ig-Info.log
+Try-It-Activity-22-1/IG-Warnings.log
