@@ -1,38 +1,18 @@
+.gitignore
+.vscode/settings.json
 /.DS_Store
-Try-It-Activity-22-1/images/IG-01.jpg
-Try-It-Activity-22-1/images/IG-02-coyote.jpg
-Try-It-Activity-22-1/images/IG-02-Fireboat.jpg
-Try-It-Activity-22-1/images/IG-02-Giant Panda.jpg
-Try-It-Activity-22-1/images/IG-03.jpg
-Try-It-Activity-22-1/images/IG-04.jpg
-Try-It-Activity-22-1/images/IG-05.jpg
-Try-It-Activity-22-1/images/IG-06.jpg
-Try-It-Activity-22-1/images/IG-07-coyote.jpg
-Try-It-Activity-22-1/images/IG-07-Fireboat.jpg
-Try-It-Activity-22-1/images/IG-07-Giant Panda.jpg
+Assignment-22-1/.DS_Store
+Assignment-22-1/my Experience.docx
 Discussion-22-1/.DS_Store
 Discussion-22-2/.DS_Store
-Assignment-22-1/.DS_Store
-Try-It-Activity-22-1/.DS_Store
-Try-It-Activity-22-1/images/Canis_latrans_(Yosemite,_2009).jpg
-Try-It-Activity-22-1/images/Screenshot.png
-Try-It-Activity-22-1/images/IG-05-1.jpg
-Try-It-Activity-22-1/images/IG-05-3.jpg
-Try-It-Activity-22-1/images/IG-05-2.jpg
-Try-It-Activity-22-1/images/integrated_gradients_intuition.jpg
-Try-It-Activity-22-1/images/integrated_gradients_interpolated.jpg
-images/*
 error.ipynb
-Assignment-22-1/my Experience.docx
-Try-It-Activity-22-1/ig-Error.log
-Try-It-Activity-22-1/ig-Info.log
-Try-It-Activity-22-1/IG-Warnings.log
-Try-It-Activity-22-1/ig-Error.log
-Try-It-Activity-22-1/ig-Error.log
+*.log
+images/*
+Try-It-Activity-22-1/.DS_Store
+Try-It-Activity-22-1/images/*
 Try-It-Activity-22-1/venv/*
-ig-Error.log
-ig-Info.log
-ig-Warnings.log
-Try-It-Activity-22-1/ig-Info.log
-Try-It-Activity-22-1/ig-Info.log
+Try-It-Activity-22-1/*.log
+Try-It-Activity-22-1/ig-Error.log
 Try-It-Activity-22-1/IG-Warnings.log
+.gitignore
+.gitignore
